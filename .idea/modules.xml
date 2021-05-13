@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ControlMyDevices.iml" filepath="$PROJECT_DIR$/ControlMyDevices.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ControlMyDevices.iml" filepath="$PROJECT_DIR$/.idea/modules/ControlMyDevices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ControlMyDevices.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ControlMyDevices.app.iml" />
     </modules>
   </component>
 </project>
