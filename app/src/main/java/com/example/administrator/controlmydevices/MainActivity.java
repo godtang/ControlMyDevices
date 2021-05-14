@@ -78,11 +78,19 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             String host = "255.255.255.255";//广播地址
                             int port = 40000;//广播的目的端口
-                            String message = "test";//用于发送的字符串
+                            String message = "{type:1}";//用于发送的字符串
+                            byte[] request = Des.encrypt(message.getBytes(), "abcd1234");
                             InetAddress adds = InetAddress.getByName(host);
                             DatagramSocket ds = new DatagramSocket();
-                            DatagramPacket dp = new DatagramPacket(a, a.length, adds, port);
+                            DatagramPacket dp = new DatagramPacket(request, request.length, adds, port);
                             ds.send(dp);
+                            byte[] resp = new byte[1024];
+                            DatagramPacket rep = new DatagramPacket(resp, resp.length);
+                            ds.receive(rep);
+                            byte[] recvByte = new byte[rep.getLength()];
+                            System.arraycopy(rep.getData(), 0, recvByte, 0, rep.getLength());
+                            byte[] respDecrypt = Des.decrypt(recvByte, "abcd1234");
+                            String strDecrypt = new String(respDecrypt);
                             ds.close();
                         } catch (Exception e) {
                             e.printStackTrace();
